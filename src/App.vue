@@ -1,30 +1,16 @@
 <template>
-  <div id="app">
-
-  </div>
+    <div id="app">
+        <compare></compare>
+    </div>
 </template>
 
 <script>
-  import _ from 'lodash';
+    import Compare from './components/Compare.vue'
 
-  export default {
-    name: 'app',
-    data() {
-      return {
-        users: ['john', 'paul', 'jacub'],
-        admins: ['jacob', 'paul', 'tom']
-      }
-    },
-    created() {
-      this.takeSimilar();
-    },
-    methods: {
-      takeSimilar() {
-        console.log(_.difference(this.users, this.admins));
-      }
-
+    export default {
+        name: 'app',
+        components: { Compare }
     }
-  }
 </script>
 
 <style>
