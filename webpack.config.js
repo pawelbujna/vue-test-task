@@ -1,6 +1,6 @@
-var path = require('path')
-var webpack = require('webpack')
-var LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
+const path = require('path')
+const webpack = require('webpack')
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 
 module.exports = {
   entry: './src/main.js',
@@ -19,7 +19,6 @@ module.exports = {
             'scss': 'vue-style-loader!css-loader!sass-loader',
             'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
           }
-          // other vue-loader options go here
         }
       },
       {
@@ -50,7 +49,7 @@ module.exports = {
   },
   devtool: '#eval-source-map',
   plugins: [
-    new LodashModuleReplacementPlugin
+    new LodashModuleReplacementPlugin()
   ]
 }
 
