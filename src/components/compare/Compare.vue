@@ -1,29 +1,35 @@
 <template>
-    <form @submit.prevent="onSubmit">
-        <button type="submit">
-                Compare two movies
-        </button>
-        <div>
-            <label for="title-one">Pick first title</label>
-            <input type="text" name="title-one" v-model="titleOne">
+    <div>
+        <div class="p-a-10 m-l-12 m-r-12 bg-col-primary">
+            <form @submit.prevent="onSubmit">
+                <div class="m-b-5">
+                    <label class="label col-w" for="title-one">Pick first title</label>
+                    <input class="input w-12" type="text" name="title-one" v-model="titleOne">
+                </div>
+                <p class="m-b-5 col-alert fs-2" v-show="wrongFirstTitle">
+                    Title is wrong.
+                </p>
+                <div class="m-b-5">
+                    <label class="label col-w" for="title-two">Pick second title</label>
+                    <input class="input" type="text" name="title-two" v-model="titleTwo">
+                </div>
+                <p class="m-b-5 col-alert fs-2" v-show="wrongSecondTitle">
+                    Title is wrong.
+                </p>
+                <button class="button m-t-10" type="submit">
+                        Compare two movies
+                </button>
+            </form>
         </div>
-        <p v-show="wrongFirstTitle">
-            Title is wrong.
-        </p>
-        <div>
-            <label for="title-two">Pick second title</label>
-            <input type="text" name="title-two" v-model="titleTwo">
+        <div class="p-a-10 m-l-12 m-r-12 m-t-12 bg-col-primary">
+            <p class="col-w" v-show="isSameValue" v-for="actor in sameActors">
+                    {{actor}}
+            </p>
+            <p class="col-w" v-show="!noSameValue">
+                There aren't same actors in these movies.
+            </p>
         </div>
-        <p v-show="wrongSecondTitle">
-            Title is wrong.
-        </p>
-        <p v-show="!noSameValue">
-            There aren't same actors in these movies.
-        </p>
-        <p v-show="isSameValue" v-for="actor in sameActors">
-            {{actor}}
-        </p>
-    </form>
+    </div>
 </template>
 
 <script>

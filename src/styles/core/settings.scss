@@ -5,9 +5,17 @@ $break-medium: 768px;
 $break-large: 1024px;
 $break-extra: 1280px;
 
+$font: 'Open Sans', sans-serif;
+$font-size__base : 1.125;
+$font-size__num-shift : 5;
+
 $colors: (
   'w': #fff,
-  'b': #000
+  'b': #000,
+  'secondary': #2B2B2B,
+  'primary': #2f3438,
+  'accent': #319988,
+  'alert': #319988
 );
 
 $attributes: (

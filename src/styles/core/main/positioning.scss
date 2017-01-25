@@ -1,0 +1,53 @@
+@import '../settings';
+@import '../mixins/react-on-mobiles';
+
+.pos-absolute { position: absolute; }
+.pos-relative { position: relative; }
+.pos-fixed { position: fixed; }
+.top-100 { top: 100%; }
+
+@for $value from $minvalue to $maxvalue {
+    @each $direction, $direction-value in $directions {
+        @each $size, $size-value in $base-sizes {
+
+
+            @if $direction != a {
+
+                @if $size == x {
+                    .#{$direction-value}-#{$value} {
+                    $sum: calc(#{$value} * #{$size-value});
+                    #{$direction-value}: $sum;
+                    }
+                }
+
+                @if $size != null {
+                    @include react-on-mobiles($size) {
+                        .#{$direction-value}-#{$value}-#{$size} {
+                            $sum: calc(#{$value} * #{$size-value});
+                            #{$direction-value}: $sum;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+@for $value from $minvalue to $maxvalue {
+        @each $size, $size-value in $base-sizes {
+            @if $size == x {
+                .z-#{$value} {
+                    z-index: #{$value}
+                }
+            }
+
+            @if $size != null {
+                @include react-on-mobiles($size) {
+                    .z-#{$value}-#{$size} {
+                        z-index: #{$value};
+                    }
+                }
+            }
+    }
+}

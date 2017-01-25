@@ -1,7 +1,17 @@
 @import 'core/settings';
-// @import 'core/reset';
+@import 'core/reset';
 
-// @import 'core/main/grid';
+@import 'core/main/colors';
+@import 'core/main/display';
+@import 'core/main/grid';
+@import 'core/main/height';
+@import 'core/main/positioning';
 @import 'core/main/spacing';
+@import 'core/main/text';
+@import 'core/main/font-size';
 
-// @import 'core/elements/labels';
+@import 'core/elements/labels';
+@import 'core/elements/button';
+@import 'core/elements/input';
+
+@import 'core/custom/general';

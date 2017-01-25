@@ -16,7 +16,7 @@
 
                 @if $attribute !=b {
                   $sum: calc(#{$value} * #{$size-value});
-                  #{$attribute-value}-#{$direction-value}: $sum; 
+                  #{$attribute-value}: $sum; 
                 }
               }
 

@@ -1,3 +1,6 @@
-label {
-    display: block;
+.label {
+    @extend .block;
+    @extend .m-b-2;
+    @extend .fs-2;
+    @extend .uppercase;
 }

@@ -1,0 +1,23 @@
+@import '../lib/math';
+@import '../settings';
+@import '../mixins/react-on-mobiles';
+
+@mixin font-size-power($factor) {
+  font-size: #{ power($font-size__base, $factor - $font-size__num-shift) }em;
+}
+
+@for $value from $minvalue through $maxvalue {
+    .fs-#{ $value } {
+        @include font-size-power($value);
+    }
+}
+
+@each $size, $size-value in $base-sizes {
+    @for $value from $minvalue through $maxvalue  {
+         @include react-on-mobiles($size) {
+            .fs-#{$value}-#{$size} {
+                @include font-size-power($value);
+            }
+         }
+    }
+}

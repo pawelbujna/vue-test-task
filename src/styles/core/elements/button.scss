@@ -1,0 +1,11 @@
+.button {
+    @extend .p-t-6;
+    @extend .p-b-6;
+    @extend .p-l-15;
+    @extend .p-r-15;
+    @extend .col-w;
+    @extend .b-a-0;
+    @extend .bg-col-accent;
+    @extend .uppercase;
+    @extend .fs-2;
+}

@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div id="app" class="height-100-vh bg-col-secondary p-t-12">
         <compare></compare>
     </div>
 </template>
