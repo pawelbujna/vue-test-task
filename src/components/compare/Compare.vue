@@ -1,42 +1,44 @@
 <template>
-    <div>
+    <div class="p-a-10 m-l-12 m-r-12 bg-col-primary">
+        <InputWrap></inputWrap>
+    <!--
         <div class="p-a-10 m-l-12 m-r-12 bg-col-primary">
             <form @submit.prevent="onSubmit">
-                <div class="m-b-5">
+                <div class="m-b-10">
                     <label class="label col-w" for="title-one">Pick first title</label>
                     <input class="input w-12" type="text" name="title-one" v-model="titleOne">
+                    <span class="col-alert fs-2" v-show="wrongFirstTitle">Title is wrong.</span>
                 </div>
-                <p class="m-b-5 col-alert fs-2" v-show="wrongFirstTitle">
-                    Title is wrong.
-                </p>
                 <div class="m-b-5">
                     <label class="label col-w" for="title-two">Pick second title</label>
                     <input class="input" type="text" name="title-two" v-model="titleTwo">
+                    <span class="col-alert fs-2" v-show="wrongSecondTitle">Title is wrong.</span>
                 </div>
-                <p class="m-b-5 col-alert fs-2" v-show="wrongSecondTitle">
-                    Title is wrong.
-                </p>
                 <button class="button m-t-10" type="submit">
                         Compare two movies
                 </button>
             </form>
         </div>
-        <div class="p-a-10 m-l-12 m-r-12 m-t-12 bg-col-primary">
+        <div class="p-a-10 m-l-12 m-r-12 m-t-12 bg-col-primary" v-if="isSameValue || !noSameValue">
             <p class="col-w" v-show="isSameValue" v-for="actor in sameActors">
                     {{actor}}
             </p>
             <p class="col-w" v-show="!noSameValue">
                 There aren't same actors in these movies.
             </p>
-        </div>
+        </div>-->
     </div>
 </template>
 
 <script>
+    import InputWrap from './../inputWrap/InputWrap.vue'
     import axios from 'axios';
     import _ from 'lodash';
 
     export default {
+        components: {
+            InputWrap
+        },
         data() {
             return {
                 titleOne: '',

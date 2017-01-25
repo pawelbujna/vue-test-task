@@ -15,7 +15,9 @@ $colors: (
   'secondary': #2B2B2B,
   'primary': #2f3438,
   'accent': #319988,
-  'alert': #319988
+  'alert': #EF7148,
+  'accent-darker': darken(#319988, 10%),
+  'grey-20': darken(#fff, 20%)
 );
 
 $attributes: (
