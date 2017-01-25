@@ -1,10 +1,10 @@
 <template>
-        <form class="pos-relative">
-                <label class="label col-w" for="title-one">Pick first title</label>
-                <input class="input w-12" type="text" name="title-one" v-model="title" @keydown="getMoviesSuggestions()">
-                <div class="pos-absolute w-12 top-100">
+        <form class="pos-relative m-b-10" @submit.prevent="getMoviesSugestions()">
+                <label class="label col-w">Pick title</label>
+                <input class="input w-12" type="text" v-model="title" @keyup="getMoviesSuggestions()" autocomplete="off">
+                <div class="pos-absolute w-12 z-3 top-100">
                     <ul class="list">
-                        <li class="list-item" v-for="sugestion in sugestions" @click="pickTitle(sugestion.Title)">
+                        <li class="list-item" v-for="sugestion in sugestions" @click="pickTitle(sugestion.imdbID, sugestion.Title)">
                             {{sugestion.Title}}
                         </li>
                     </ul>
@@ -21,16 +21,28 @@
             return {
                 title: '',
                 sugestions: [],
-                apiPath: 'http://www.omdbapi.com/?s='
+                movieData: {},
+                isVisible: false,
+                apiSearchPath: 'http://www.omdbapi.com/?s=',
+                apiIdPath: 'http://www.omdbapi.com/?i='
             }
         },
         methods: {
-            pickTitle(choosenTitle) {
-                this.title = choosenTitle;
+            pickTitle(movieId, title) {
+                this.title = title;
                 this.sugestions = [];
+
+                axios.get(`${this.apiIdPath}${movieId}`)
+                    .then((response) => {
+                        this.movieData = response.data;
+                        console.log(this.movieData.Actors)
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    })
             },
             getMoviesSuggestions() {
-                 axios.get(`${this.apiPath}${this.title}`)
+                 axios.get(`${this.apiSearchPath}${this.title}`)
                         .then((response) => {
                             this.sugestions = response.data.Search;
                         })

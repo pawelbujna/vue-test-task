@@ -1,8 +1,15 @@
 <template>
     <div class="p-a-10 m-l-12 m-r-12 bg-col-primary">
-        <InputWrap></inputWrap>
-    <!--
-        <div class="p-a-10 m-l-12 m-r-12 bg-col-primary">
+        
+        <InputWrap></InputWrap>
+        <InputWrap></InputWrap>
+    
+        <button class="button m-t-10" @click="">
+                Compare two movies
+        </button>   
+    
+    
+    <!--<div class="p-a-10 m-l-12 m-r-12 bg-col-primary">
             <form @submit.prevent="onSubmit">
                 <div class="m-b-10">
                     <label class="label col-w" for="title-one">Pick first title</label>
