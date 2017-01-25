@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import Compare from './components/Compare.vue'
+    import Compare from './components/compare/Compare.vue'
 
     export default {
         name: 'app',
@@ -13,6 +13,6 @@
     }
 </script>
 
-<style>
-
+<style lang="scss">
+    @import 'styles/main';
 </style>

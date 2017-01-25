@@ -1,0 +1,62 @@
+@import '../settings';
+@import '../mixins/react-on-mobiles';
+
+
+@for $value from $minvalue to $maxvalue {
+  @each $size, $size-value in $base-sizes {
+    @each $attribute, $attribute-value in $attributes {
+      @each $direction, $direction-value in $directions {
+
+        @if $direction == a {
+          .#{$attribute}-#{$direction}-#{$value} {
+              @if $size == x {
+                @if $attribute == b {
+                  border: #{$value}px solid;
+                }
+
+                @if $attribute !=b {
+                  $sum: calc(#{$value} * #{$size-value});
+                  #{$attribute-value}-#{$direction-value}: $sum; 
+                }
+              }
+
+              @if $size != null {
+                @include react-on-mobiles($size){
+                  &-#{$size} {
+                    $sum: calc(#{$value} * #{$size-value});
+                    #{$attribute-value}: $sum;
+                  }
+                }
+              }
+            }
+          }
+
+         @if $direction != a {
+          .#{$attribute}-#{$direction}-#{$value}{
+            $sum: calc(#{$value} * #{$size-value});
+
+            @if $size == x {
+              $propertyname: #{$attribute-value}-#{$direction-value};
+
+               @if $attribute != b {
+                  #{$propertyname}: $sum;
+                }
+
+              @if $attribute == b {
+                border-#{$direction-value}: #{$value}px solid;
+              }
+
+              @if $size != null {
+                @include react-on-mobiles($size){
+                  &-#{$size} {
+                    #{$propertyname}: $sum;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
