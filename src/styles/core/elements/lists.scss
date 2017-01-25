@@ -1,6 +1,8 @@
 .list {
     @extend .bg-col-w;
     width: 100%;
+    max-height: 250px;
+    overflow-y: scroll;
 
     &-item {
         @extend .p-t-6;
@@ -8,8 +10,6 @@
         @extend .fs-3;
         @extend .b-t-1;
         width: 100%;
-        max-height: 250px;
-        overflow-y: scroll;
 
         &:hover {
             @extend .bg-col-grey-20;

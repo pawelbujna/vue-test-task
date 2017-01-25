@@ -4,7 +4,7 @@
                 <input class="input w-12" type="text" name="title-one" v-model="title" @keydown="getMoviesSuggestions()">
                 <div class="pos-absolute w-12 top-100">
                     <ul class="list">
-                        <li class="list-item" v-for="sugestion in sugestions" @click="picTitle(sugestion.Title)">
+                        <li class="list-item" v-for="sugestion in sugestions" @click="pickTitle(sugestion.Title)">
                             {{sugestion.Title}}
                         </li>
                     </ul>
