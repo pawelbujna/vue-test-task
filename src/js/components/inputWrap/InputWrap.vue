@@ -39,8 +39,8 @@
                 finalData: {},
                 isVisible: false,
                 isActive: true,
-                apiSearchPath: 'http://www.omdbapi.com/?s=',
-                apiIdPath: 'http://www.omdbapi.com/?i='
+                apiSearchPath: 'https://www.omdbapi.com/?s=',
+                apiIdPath: 'https://www.omdbapi.com/?i='
             }
         },
         methods: {
