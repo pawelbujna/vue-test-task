@@ -3,7 +3,7 @@ const webpack = require('webpack')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 
 module.exports = {
-  entry: './src/main.js',
+  entry: ['./src/firebaseConfig.js', './src/main.js'],
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',

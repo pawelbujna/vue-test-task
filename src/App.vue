@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import Compare from './components/compare/Compare.vue'
+    import Compare from './js/components/compare/Compare.vue'
 
     export default {
         name: 'app',
